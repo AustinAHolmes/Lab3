@@ -19,13 +19,16 @@ def getJobList(role,location):
                 "Company": company,
                 "Description": description
             }
-            jobs.append(jobDetailsJson)
-            print(*jobs, sep = "\n")    
+            jobs.append(jobDetailsJson)       
     return jobs
 #save data in JSON file
 def saveDataInJSON(jobDetails):
     #Complete the missing part of this function here
     print("Saving data to JSON")
+    jsonFile = open("jobDetails.json", "w") 
+    json.dump(jobDetails, jsonFile, indent= 6)
+    jsonFile.close()
+    
 
 #main function
 def main():
@@ -37,6 +40,7 @@ def main():
     print("Enter location")
     location = input()
     getJobList(role,location)
-    
+    saveDataInJSON(getJobList(role,location))
+    print(*getJobList(role,location), sep = "\n")
 if __name__ == '__main__':
     main()
