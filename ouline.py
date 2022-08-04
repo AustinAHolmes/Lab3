@@ -19,7 +19,8 @@ def getJobList(role,location):
                 "Company": company,
                 "Description": description
             }
-            jobs.append(jobDetailsJson)        
+            jobs.append(jobDetailsJson)
+            print(*jobs, sep = "\n")    
     return jobs
 #save data in JSON file
 def saveDataInJSON(jobDetails):
